@@ -51,7 +51,7 @@ A simple web-based Library Book Manager built with [CodeIgniter 4](https://codei
    Open your browser and go to:
 
    ```
-   http://localhost:8080
+   http://localhost:8080/books
    ```
 
 ---
