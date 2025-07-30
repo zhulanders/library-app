@@ -1,13 +1,22 @@
-<h2>Books List</h2>
+<?= $this->extend('layout') ?>
 
-<?php if (session()->getFlashdata('message')): ?>
-    <p style="color: green;"><?= session()->getFlashdata('message') ?></p>
-<?php endif; ?>
+<?= $this->section('content') ?>
+    <h2>List of Books</h2>
 
-<ul>
-<?php foreach ($books as $book): ?>
-    <li><strong><?= esc($book['title']) ?></strong> by <?= esc($book['author']) ?> (<?= esc($book['genre']) ?>, <?= esc($book['publication_year']) ?>)</li>
-<?php endforeach ?>
-</ul>
+    <?php if (session()->getFlashdata('message')): ?>
+        <p><?= session()->getFlashdata('message') ?></p>
+    <?php endif; ?>
 
-<a href="/books/create">Add New Book</a>
+    <ul>
+        <?php foreach ($books as $book): ?>
+            <li>
+                <?= esc($book['title']) ?> by <?= esc($book['author']) ?>
+                <a href="/books/edit/<?= $book['id'] ?>">Edit</a>
+                <a href="/books/delete/<?= $book['id'] ?>">Delete</a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <a href="/books/create">Add New Book</a>
+
+<?= $this->endSection() ?>
+
