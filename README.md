@@ -40,6 +40,7 @@ A simple web-based Library Book Manager built with [CodeIgniter 4](https://codei
 3. **Run database migrations (inside the container)**:
 
    ```bash
+   docker-compose exec app composer install
    docker exec -it <app container name> bash
    php spark migrate
    exit
